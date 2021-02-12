@@ -1,1 +1,1 @@
-# coq-theories
+# Coq Theories
