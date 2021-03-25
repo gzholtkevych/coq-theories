@@ -2,7 +2,10 @@ Require Import List.
 Require Import Arith.Compare_dec.
 Require Import Arith.Le.
 Require Import Arith.Lt.
+Require Import Logic.Decidable.
+Require Import Arith.Peano_dec.
 Open Scope list_scope.
+
 
 Section Definitions.
   Variable T : Type.
@@ -93,3 +96,49 @@ Section Examples_for_Finite.
     Qed.
   End NatIsNotFinite.
 End Examples_for_Finite.
+
+Section Cardinality.
+  Variable T : Type.
+  Hypothesis eq_dec : forall x y : T, {x = y} + {x <> y}.
+
+  Definition In_dec : forall (x : T) (e : list T), {In x e} + {~ In x e}.
+  Proof.
+    intros.
+    induction e as [| y e' IHe].
+    - right. now simpl.
+    - elim IHe; intro HIn.
+      + left. now right.
+      + case (eq_dec x y); intro HE.
+        * left. rewrite HE. now left.
+        * right. intro H. simpl in H. elim H. intro HE'.
+          now symmetry in HE'. trivial.
+  Defined.
+
+  Fixpoint refine (lst : list T) : list T :=
+    match lst with
+      nil => lst
+    | x :: nil  => lst
+    | x :: lst' => match In_dec x lst' with
+                     left _  => refine lst'
+                   | right _ => x :: (refine lst')
+                   end
+    end.
+
+
+
+
+
+End Cardinality.
+
+Definition eq_dec_nat : forall n m : nat, {n = m} + {n <> m}.
+Proof.
+  induction n as [| n' IHn].
+  - intro. destruct m; [now left | right; intro H; discriminate H].
+  - intro. induction m as [| m' IHm].
+    + right. intro H. discriminate H.
+    + elim IHm.
+      * intro H. right. rewrite H. intro H'.
+        now pose (H'' := n_Sn m').
+      * intro H.
+
+Compute refine nat dec_eq_nat (1 :: 1 :: 2 :: 2 :: 3 :: nil).
