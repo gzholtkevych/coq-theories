@@ -1,0 +1,4 @@
+-R .. Karazin
+-arg -w
+-arg all
+ClockStructures/Definitions.v
