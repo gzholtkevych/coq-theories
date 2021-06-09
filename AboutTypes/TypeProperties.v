@@ -1,4 +1,4 @@
-Require Import List.
+Require Export List.
 Open Scope list_scope.
 
 
