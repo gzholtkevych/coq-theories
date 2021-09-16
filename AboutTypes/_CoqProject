@@ -1,6 +1,0 @@
--R .. Karazin
--arg -w
--arg all
-# Finitary and inhabitted types
-TypeProperties.v
-
