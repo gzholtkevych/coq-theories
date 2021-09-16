@@ -1,5 +1,6 @@
 -R .. Karazin
 -arg -w
 -arg all
-AboutTypes/TypeProperties.v
-AboutTypes/Examples.v
+# Finitary and inhabitted types
+TypeProperties.v
+

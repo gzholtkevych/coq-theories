@@ -1,5 +1,6 @@
 -R .. Karazin
 -arg -w
 -arg all
+SortingTheory/comparable.v
 SortingTheory/sorting.v
 
