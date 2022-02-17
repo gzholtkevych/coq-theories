@@ -1,5 +1,5 @@
--R .. Karazin
+-R . Karazin
 -arg -w
 -arg all
-AboutTypes/TypeProperties.v
-AboutTypes/Examples.v
+TypeProperties.v
+
