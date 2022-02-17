@@ -1,8 +1,5 @@
-Require Export List.
-Open Scope list_scope.
-Require Import Arith.Compare_dec.
-Require Import Arith.Le.
-Require Import Arith.Lt.
+Require Export Lists.List.
+Import ListNotations.
 
 
 Section Definitions.
@@ -68,11 +65,15 @@ Defined.
 
 (* Infiniteness of type nat                                                 *)
 
+Require Import Arith.Compare_dec.
+Require Import Arith.Le.
+Require Import Arith.Lt.
 Section NatIsNotFinite.
 (*  Here we prove that nat is not a finite type/
     The idea of the proof is to construct a function
     outside : list nat -> nat meeting the requirement
       forall e : list nat, ~ In (outside e) e.                              *)
+
 
   Fixpoint outside (ns : list nat) : nat :=
     match ns with
