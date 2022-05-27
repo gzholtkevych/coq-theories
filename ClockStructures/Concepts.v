@@ -1,4 +1,4 @@
-Require Import ClockStructures.Preliminaries.
+Require Import Karazin.ClockStructures.Preliminaries.
 
 
 Record Event (C : Set) := Event_def
@@ -31,7 +31,7 @@ Structure ClockStructure := ClockStructure_def
     ClockStructureConstraint clock prec sync
 }.
 
-
+(*
 Class ClockMorphismConstrain
 Structure ClockMorphism := cm_def {
   dom : ClockStructure;
@@ -41,3 +41,4 @@ Structure ClockMorphism := cm_def {
     src (clock dom) x = src (clock dom) y ->
       src (clock cod) (map x) = src (clock cod) (map y)
 }.
+*)

@@ -1,6 +1,6 @@
--R . ClockStructures
+-R .. Karazin
 -arg -w
 -arg all
-Preliminaries.v
-Concepts.v
+ClockStructures/Preliminaries.v
+ClockStructures/Concepts.v
 
